@@ -38,7 +38,7 @@ let NewsContainer = ({ props,dispatch }) => {
                     <NewsHeadline headline={title}></NewsHeadline>
                </Col>
                 
-                <Col style={{display:"flex",justifyContent:"start"}} xs={12} md={4}>
+                <Col id="btnContainer"style={{display:"flex"}} xs={12} md={4}>
                     <Button id="chngBtn" onClick={()=>{dispatch(fetchNews(fetchNewPage(props.setNews.page,state.pages)))}} variant="outline-danger">Change</Button>
                 </Col>
                 
