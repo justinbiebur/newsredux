@@ -18,6 +18,9 @@ code {
   max-width: 100px;
   max-height: 50px;
 }
+#btnContainer{
+    justify-content:"start"
+  }
 @media only screen and (max-width: 600px) {
   h5{
     font-size: x-small;
@@ -25,6 +28,9 @@ code {
   #chngBtn{
     max-width: 70px;
     font-size: 13px;
+  }
+  #btnContainer{
+    justify-content:"center"
   }
 }
 @media only screen and (max-width: 700px) {
