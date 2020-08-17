@@ -1,5 +1,5 @@
 import {apiKey,apiUrl} from '../helpers/config';
-
+const proxyUrl = "https://cors-anywhere.herokuapp.com/"
 
 export const showLoadingCircle=()=>{
     return {type:'SHOW_LOADING_CIRCLE'}
@@ -20,7 +20,7 @@ export const fetchWithQuery=(params)=>{
     
     return function (dispatch){
         dispatch(wait())
-        fetch(`${apiUrl}?apiKey=${apiKey}&q=${params.query}`).then(res=>res.json()).then(
+        fetch(`${proxyUrl}${apiUrl}?apiKey=${apiKey}&q=${params.query}`).then(res=>res.json()).then(
             (data)=>{
                 dispatch(setNewsSuccess(data));
             }
@@ -39,7 +39,7 @@ export const fetchWithoutQuery=(params)=>{
         if(params.country){
             
             if(params.category)
-                    fetch(`${apiUrl}?apiKey=${apiKey}&country=${params.country}&category=${params.category}`).then(res=>res.json()).then(
+                    fetch(`${proxyUrl}${apiUrl}?apiKey=${apiKey}&country=${params.country}&category=${params.category}`).then(res=>res.json()).then(
                         (data)=>{
                             
                             dispatch(setNewsSuccess(data));
@@ -48,7 +48,7 @@ export const fetchWithoutQuery=(params)=>{
                         dispatch(setNewsFailure(err))
                     })
             else{
-                    fetch(`${apiUrl}?apiKey=${apiKey}&country=${params.country}`).then(res=>res.json()).then(
+                    fetch(`${proxyUrl}${apiUrl}?apiKey=${apiKey}&country=${params.country}`).then(res=>res.json()).then(
                         (data)=>{
                            
                             dispatch(setNewsSuccess(data));
@@ -59,7 +59,7 @@ export const fetchWithoutQuery=(params)=>{
             }
     }
     else{
-        fetch(`${apiUrl}?apiKey=${apiKey}&sources=${params.sources}`).then(res=>res.json()).then(
+        fetch(`${proxyUrl}${apiUrl}?apiKey=${apiKey}&sources=${params.sources}`).then(res=>res.json()).then(
             (data)=>{
                 dispatch(setNewsSuccess(data));
             }
